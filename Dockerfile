@@ -11,3 +11,5 @@ RUN apt-get install -y protobuf-compiler
 RUN apt-get install -y oracle-java8-installer
 RUN apt-get install -y maven
 RUN apt-get install -y git
+RUN apt-get install -y docker.io
+
