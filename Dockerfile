@@ -14,6 +14,7 @@ RUN apt-get install -y git
 RUN apt-get install -y curl
 RUN apt-get install -y docker.io
 RUN apt-get install -y awscli
+RUN apt-get install -y libfontconfig1
 RUN apt-get -y install python-pip
 RUN pip install docker-compose
 
