@@ -18,6 +18,7 @@ RUN apt-get install -y libfontconfig1
 RUN apt-get install -y libtime-duration-perl
 RUN apt-get install -y cpanminus
 RUN apt-get install -y moreutils
+RUN apt-get install -y task-spooler
 RUN apt-get -y install python-pip
 RUN pip install docker-compose
 
