@@ -21,7 +21,6 @@ RUN apt-get install -y moreutils
 RUN apt-get install -y task-spooler
 RUN apt-get install -y rubygems
 RUN gem install rake
-RUN gem install github_changelog_generator
+RUN gem install specific_install && gem specific_install https://github.com/Proemion/github-changelog-generator.git
 RUN apt-get -y install python-pip
 RUN pip install docker-compose
-
