@@ -12,7 +12,6 @@ RUN apt-get install -y oracle-java8-installer
 RUN apt-get install -y maven
 RUN apt-get install -y git
 RUN apt-get install -y curl
-RUN apt-get install -y docker.io
 RUN apt-get install -y awscli
 RUN apt-get install -y libfontconfig1
 RUN apt-get install -y libtime-duration-perl
@@ -23,4 +22,14 @@ RUN apt-get install -y rubygems
 RUN gem install rake
 RUN gem install specific_install && gem specific_install https://github.com/Proemion/github-changelog-generator.git
 RUN apt-get -y install python-pip
+RUN apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
+    && add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+       $(lsb_release -cs) \
+       stable" \
+    && apt-get update \
+    && apt-get install -y docker-ce=17.06.0~ce-0~ubuntu
 RUN pip install docker-compose
