@@ -9,7 +9,6 @@ RUN apt-get update
 RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
 RUN apt-get install -y protobuf-compiler
 RUN apt-get install -y oracle-java8-installer
-RUN apt-get install -y maven
 RUN apt-get install -y git
 RUN apt-get install -y curl
 RUN apt-get install -y awscli
@@ -33,3 +32,8 @@ RUN apt-get install -y \
     && apt-get update \
     && apt-get install -y docker-ce=17.06.0~ce-0~ubuntu
 RUN pip install docker-compose
+RUN curl http://ftp.heanet.ie/mirrors/www.apache.org/dist/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz \
+    | tar -zxv -C /opt \
+    && ln -s /opt/apache-maven-3.5.0/bin/mvn /usr/bin/mvn \
+    && mvn -version
+
